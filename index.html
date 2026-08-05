@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek-on-x402 — pay-per-call LLM API (0.01 USDC)</title>
+<meta name="description" content="Pay-per-call LLM API. DeepSeek v4 Flash, 0.01 USDC per request on Base, paid via x402. No signup, no API key. Use any x402 wallet or the Coinbase Agentic Wallet CLI.">
+<link rel="canonical" href="https://x402-ai.is-a.dev/">
+<meta property="og:title" content="DeepSeek-on-x402 — pay-per-call LLM API">
+<meta property="og:description" content="0.01 USDC per request, DeepSeek v4 Flash, paid on-chain via x402. No signup, no API key.">
+<style>
+  :root { color-scheme: dark; --bg:#0b0e14; --card:#131a26; --line:#232c3d; --txt:#e7ecf3; --mut:#93a1b5; --acc:#4f8cff; --ok:#3ddc97; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background:var(--bg); color:var(--txt); font:16px/1.6 system-ui,Segoe UI,Roboto,sans-serif; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+  .pill { display:inline-block; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--acc); border:1px solid var(--line); border-radius:999px; padding:4px 12px; margin-bottom:18px; }
+  h1 { font-size:36px; line-height:1.15; letter-spacing:-.02em; }
+  .sub { color:var(--mut); font-size:18px; margin:14px 0 28px; }
+  .price { display:flex; gap:12px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 20px; margin-bottom:30px; }
+  .price b { font-size:26px; color:var(--ok); }
+  .price span { color:var(--mut); }
+  h2 { font-size:20px; margin:32px 0 14px; }
+  code { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:2px 6px; font-size:14px; }
+  pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; overflow:auto; font-size:14px; margin:10px 0; }
+  pre code { background:none; border:none; padding:0; }
+  a { color:var(--acc); }
+  .btn { display:inline-block; background:var(--acc); color:#fff; text-decoration:none; padding:10px 18px; border-radius:10px; font-weight:600; margin-top:8px; }
+  .btn:hover { opacity:.9; }
+  .foot { margin-top:48px; color:var(--mut); font-size:13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="pill">Live on Base mainnet</span>
+  <h1>Pay-per-call LLM API.<br>No signup. No API key.</h1>
+  <p class="sub">Call DeepSeek v4 Flash and pay <b>0.01 USDC</b> per request on Base — settled on-chain via the x402 payment protocol, gasless for you.</p>
+
+  <div class="price"><b>0.01 USDC</b><span>per request · deepseek-v4-flash · adaptive reasoning</span></div>
+
+  <a class="btn" href="https://x402-ai-api.botty4541.workers.dev/service/chat?prompt=hello">Try the live endpoint →</a>
+
+  <h2>One-liner</h2>
+  <pre><code>awal x402 pay "https://x402-ai-api.botty4541.workers.dev/service/chat?prompt=explain%20ERC-20"</code></pre>
+
+  <h2>How it works</h2>
+  <ul style="margin-left:20px;color:var(--mut)">
+    <li>Call the endpoint → server replies <code>HTTP 402</code> with an <code>X-X402-Configuration</code> header.</li>
+    <li>Pay 0.01 USDC (x402) → get an <code>X-X402-Payment</code> header.</li>
+    <li>Resend with that header → the server returns the model's answer as JSON.</li>
+  </ul>
+
+  <h2>Agent-friendly specs</h2>
+  <ul style="margin-left:20px;color:var(--mut)">
+    <li><a href="https://x402-ai-api.botty4541.workers.dev/openapi.json">/openapi.json</a> — OpenAPI 3.0</li>
+    <li><a href="https://x402-ai-api.botty4541.workers.dev/.well-known/llms.txt">/.well-known/llms.txt</a> — llmstxt.org</li>
+    <li><a href="https://x402-ai-api.botty4541.workers.dev/.well-known/ai-plugin.json">/.well-known/ai-plugin.json</a> — plugin manifest</li>
+  </ul>
+
+  <h2>Details</h2>
+  <ul style="margin-left:20px;color:var(--mut)">
+    <li>Network: Base (eip155:8453) · Asset: USDC (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)</li>
+    <li>Source: <a href="https://github.com/Blippy123/x402-ai-api">github.com/Blippy123/x402-ai-api</a> (MIT)</li>
+  </ul>
+
+  <div class="foot">Revenue address: <code>0xD5EA89421bD1a23E4Fca0139802507C3052142c9</code> (Base). This page was created by an AI agent on behalf of the project owner.</div>
+</div>
+</body>
+</html>
