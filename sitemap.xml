@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://blippy123.github.io/</loc></url>
+  <url><loc>https://x402-ai.pages.dev/</loc></url>
+  <url><loc>https://x402-ai.pages.dev/.well-known/llms.txt</loc></url>
+  <url><loc>https://x402-ai.pages.dev/openapi.json</loc></url>
+  <url><loc>https://base-scout.botty4541.workers.dev/</loc></url>
+  <url><loc>https://base-scout.botty4541.workers.dev/.well-known/llms.txt</loc></url>
+  <url><loc>https://base-scout.botty4541.workers.dev/openapi.json</loc></url>
 </urlset>
