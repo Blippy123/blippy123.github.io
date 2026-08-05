@@ -3,66 +3,63 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DeepSeek-on-x402 — pay-per-call LLM API (0.01 USDC)</title>
-<meta name="description" content="Pay-per-call LLM API. DeepSeek v4 Flash, 0.01 USDC per request on Base, paid via x402. No signup, no API key. Use any x402 wallet or the Coinbase Agentic Wallet CLI.">
+<title>Agent Treasury — pay-per-call APIs on Base (x402)</title>
+<meta name="description" content="Two live pay-per-call APIs on Base: DeepSeek-on-x402 (0.01 USDC per LLM request) and PicoPages (0.01 USDC per deployed page). No signup, no API keys. Paid via x402, gasless, settled on-chain.">
 <link rel="canonical" href="https://blippy123.github.io/">
-<meta property="og:title" content="DeepSeek-on-x402 — pay-per-call LLM API">
-<meta property="og:description" content="0.01 USDC per request, DeepSeek v4 Flash, paid on-chain via x402. No signup, no API key.">
+<meta property="og:title" content="Agent Treasury — pay-per-call APIs on Base">
+<meta property="og:description" content="DeepSeek LLM API + one-page site deployer. 0.01 USDC per call, paid via x402, no signup.">
 <style>
-  :root { color-scheme: dark; --bg:#0b0e14; --card:#131a26; --line:#232c3d; --txt:#e7ecf3; --mut:#93a1b5; --acc:#4f8cff; --ok:#3ddc97; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background:var(--bg); color:var(--txt); font:16px/1.6 system-ui,Segoe UI,Roboto,sans-serif; }
-  .wrap { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
-  .pill { display:inline-block; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--acc); border:1px solid var(--line); border-radius:999px; padding:4px 12px; margin-bottom:18px; }
-  h1 { font-size:36px; line-height:1.15; letter-spacing:-.02em; }
-  .sub { color:var(--mut); font-size:18px; margin:14px 0 28px; }
-  .price { display:flex; gap:12px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 20px; margin-bottom:30px; }
-  .price b { font-size:26px; color:var(--ok); }
-  .price span { color:var(--mut); }
-  h2 { font-size:20px; margin:32px 0 14px; }
-  code { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:2px 6px; font-size:14px; }
-  pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; overflow:auto; font-size:14px; margin:10px 0; }
-  pre code { background:none; border:none; padding:0; }
-  a { color:var(--acc); }
-  .btn { display:inline-block; background:var(--acc); color:#fff; text-decoration:none; padding:10px 18px; border-radius:10px; font-weight:600; margin-top:8px; }
-  .btn:hover { opacity:.9; }
-  .foot { margin-top:48px; color:var(--mut); font-size:13px; }
+  :root { color-scheme: dark; --bg:#0b0e14; --card:#131a26; --line:#232c3d; --txt:#e7ecf3; --mut:#93a1b5; --acc:#4f8cff; --acc2:#16c784; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  h1 { font-size: 30px; margin: 0 0 6px; }
+  h2 { font-size: 20px; margin: 0 0 4px; }
+  .sub { color: var(--mut); margin: 0 0 28px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin:16px 0; }
+  .pill { display:inline-block; background:#10203a; color:var(--acc); border:1px solid #1c3a66; border-radius:999px; padding:2px 10px; font-size:12px; margin-left:8px; vertical-align:middle; }
+  .badge { display:inline-block; background:#0d2819; color:var(--acc2); border:1px solid #14532d; border-radius:999px; padding:2px 10px; font-size:12px; margin-right:6px; }
+  a { color:var(--acc); text-decoration:none; } a:hover { text-decoration:underline; }
+  code { background:#0d1420; border:1px solid var(--line); border-radius:5px; padding:1px 6px; font-size:13px; }
+  pre { background:#0d1420; border:1px solid var(--line); border-radius:8px; padding:12px 14px; overflow-x:auto; font-size:13px; }
+  .muted { color: var(--mut); font-size:14px; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <span class="pill">Live on Base mainnet</span>
-  <h1>Pay-per-call LLM API.<br>No signup. No API key.</h1>
-  <p class="sub">Call DeepSeek v4 Flash and pay <b>0.01 USDC</b> per request on Base — settled on-chain via the x402 payment protocol, gasless for you.</p>
+  <h1>Agent Treasury <span class="pill">live on Base</span></h1>
+  <p class="sub">Two pay-per-call APIs that take real money, settle on-chain via x402, no signup and no API keys. Open source, live now.</p>
 
-  <div class="price"><b>0.01 USDC</b><span>per request · deepseek-v4-flash · adaptive reasoning</span></div>
+  <div class="card">
+    <h2>1 &middot; DeepSeek-on-x402 <span class="badge">0.01 USDC / request</span></h2>
+    <p>Pay-per-call LLM API. Send any prompt, receive a <strong>DeepSeek v4 Flash</strong> answer with adaptive reasoning. Payment is <em>pay-as-you-go</em>: HTTP 402 &rarr; pay with any x402 wallet &rarr; get your answer.</p>
+    <ul>
+      <li>Try: <code>awal x402 pay "https://x402-ai.pages.dev/service/chat?prompt=hi"</code></li>
+      <li>Live: <a href="https://x402-ai.pages.dev">x402-ai.pages.dev</a> &equiv; <a href="https://x402-ai-api.botty4541.workers.dev">x402-ai-api.botty4541.workers.dev</a></li>
+      <li>OpenAPI: <a href="https://x402-ai.pages.dev/openapi.json">openapi.json</a> &middot; <a href="https://x402-ai.pages.dev/.well-known/llms.txt">llms.txt</a> &middot; <a href="https://x402-ai.pages.dev/.well-known/ai-plugin.json">ai-plugin.json</a></li>
+      <li>Source: <a href="https://github.com/Blippy123/x402-ai-api">github.com/Blippy123/x402-ai-api</a></li>
+    </ul>
+  </div>
 
-  <a class="btn" href="https://x402-ai.pages.dev/service/chat?prompt=hello">Try the live endpoint →</a>
+  <div class="card">
+    <h2>2 &middot; PicoPages <span class="badge">0.01 USDC / site</span></h2>
+    <p>Design a one-page site in a builder, pay <strong>0.01 USDC</strong>, get it live at <code>yourslug.pages.dev</code> on Cloudflare Pages. Fully automated &mdash; no account, no checkout, no dashboard.</p>
+    <ul>
+      <li>Live: <a href="https://picopages.botty4541.workers.dev">picopages.botty4541.workers.dev</a></li>
+      <li>OpenAPI: <a href="https://picopages.botty4541.workers.dev/openapi.json">openapi.json</a> &middot; <a href="https://picopages.botty4541.workers.dev/.well-known/llms.txt">llms.txt</a> &middot; <a href="https://picopages.botty4541.workers.dev/.well-known/ai-plugin.json">ai-plugin.json</a></li>
+      <li>Source: <a href="https://github.com/Blippy123/picopages">github.com/Blippy123/picopages</a></li>
+    </ul>
+  </div>
 
-  <h2>One-liner</h2>
-  <pre><code>awal x402 pay "https://x402-ai.pages.dev/service/chat?prompt=explain%20ERC-20"</code></pre>
+  <div class="card">
+    <h2>Pay with any x402 wallet</h2>
+    <p>Both services use the <strong>x402</strong> standard (facilitated by Coinbase CDP): the payer never needs ETH &mdash; settlement is gasless on Base. Revenue lands in the shared fee wallet <code>0xD5EA89421bD1a23E4Fca0139802507C3052142c9</code>.</p>
+    <pre>curl -s https://x402-ai.pages.dev/service/chat?prompt=hi   # &rarr; HTTP 402 + payment-required
+awal x402 pay "https://x402-ai.pages.dev/service/chat?prompt=hi"</pre>
+    <p class="muted">Quickstarts: <a href="https://gist.github.com/Blippy123/24965dd5f197f49d87e4b8c83a9a6b70">client examples</a> &middot; <a href="https://gist.github.com/Blippy123/2d24d26f05407ff0df5456b21da776e7">announcement</a> &middot; Listed on <a href="https://www.x402scan.com">x402scan.com</a></p>
+  </div>
 
-  <h2>How it works</h2>
-  <ul style="margin-left:20px;color:var(--mut)">
-    <li>Call the endpoint → server replies <code>HTTP 402</code> with an <code>X-X402-Configuration</code> header.</li>
-    <li>Pay 0.01 USDC (x402) → get an <code>X-X402-Payment</code> header.</li>
-    <li>Resend with that header → the server returns the model's answer as JSON.</li>
-  </ul>
-
-  <h2>Agent-friendly specs</h2>
-  <ul style="margin-left:20px;color:var(--mut)">
-    <li><a href="https://x402-ai.pages.dev/openapi.json">/openapi.json</a> — OpenAPI 3.0</li>
-    <li><a href="https://x402-ai.pages.dev/.well-known/llms.txt">/.well-known/llms.txt</a> — llmstxt.org</li>
-    <li><a href="https://x402-ai.pages.dev/.well-known/ai-plugin.json">/.well-known/ai-plugin.json</a> — plugin manifest</li>
-  </ul>
-
-  <h2>Details</h2>
-  <ul style="margin-left:20px;color:var(--mut)">
-    <li>Network: Base (eip155:8453) · Asset: USDC (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)</li>
-    <li>Listed on: <a href="https://www.x402scan.com/">x402scan.com</a> · Source: <a href="https://github.com/Blippy123/x402-ai-api">github.com/Blippy123/x402-ai-api</a> (MIT, public)</li>
-  </ul>
-
-  <div class="foot">Revenue address: <code>0xD5EA89421bD1a23E4Fca0139802507C3052142c9</code> (Base). This page was created by an AI agent on behalf of the project owner.</div>
+  <p class="muted">Both projects are open source under the <a href="https://github.com/Blippy123">Blippy123</a> GitHub account. Built by an autonomous agent with <a href="https://docs.cdp.coinbase.com">Coinbase CDP</a>.</p>
 </div>
 </body>
 </html>
